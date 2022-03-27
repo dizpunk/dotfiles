@@ -1,2 +1,2 @@
 # dotfiles
-My collection of dotfiles and configurations files. 📦
+My collection of dotfiles and configuration files. 📦

@@ -1,24 +1,4 @@
-#                  BASH configs                
-#                       MM                       
-#                   MMMMMMMMMM                   
-#               MMMMMMMMMMMMMMMMMM               
-#            MMMMMMMMMMMMMMMMMMMMMMMM            
-#        MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM        
-#       MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      
-#      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      
-#      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM....M      
-#      MMMMMMMMMMMMMMMMMMMMMMMMMMM........M      
-#      MMMMMMMMMMMMMMMMMMMMMM.............M      
-#      MMMMMMMMMMMMMMMMMMMM...............M      
-#      MMMMMMMMMMMMMMMMMM....XX...........M      
-#      MMMMMMMMMMMMMMMMMM...XXXX..........M      
-#      MMMMMMMMMMMMMMMMMM...XXX...........M      
-#      MMMMMMMMMMMMMMMMMM...XXXX..........M      
-#       MMMMMMMMMMMMMMMMM....XXX..........M      
-#         MMMMMMMMMMMMMMM...XXX........:         
-#             MMMMMMMMMMM..........:             
-#                MMMMMMMM.......:                
-#                    MMMM...:
+# BASH configurations
 
 # If not running interactively return
 case $- in
@@ -88,13 +68,17 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Man enhancement
-man() {
-    LESS_TERMCAP_md=$'\e[01;33m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;34m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    command man "$@"
-}
+# Colors for man pages
+if command -v most 2&> /dev/null; then
+    export PAGER="most"
+else
+    man() {
+        LESS_TERMCAP_me=$'\e[0m' \
+        LESS_TERMCAP_se=$'\e[0m' \
+        LESS_TERMCAP_ue=$'\e[0m' \
+        LESS_TERMCAP_md=$'\e[01;33m' \
+        LESS_TERMCAP_us=$'\e[01;34m' \
+        LESS_TERMCAP_so=$'\e[01;44;33m' \
+        command man "$@"
+    }
+fi
