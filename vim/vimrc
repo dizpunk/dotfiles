@@ -1,0 +1,145 @@
+"**********************************************"
+"                 VIM settings                 "
+"**********************************************"
+
+" Disable vi compatibility
+set nocompatible
+
+" Enable mouse support on all modes
+if has('mouse')
+    set mouse=a
+endif
+
+" Enable syntax highlighting
+if has('syntax')
+    syntax on
+endif
+
+" Enable filetype indentation rules
+if has('filetype')
+    filetype indent plugin on
+endif
+
+" General settings
+set ruler
+set number
+set hidden
+set confirm
+set showcmd
+set ttyfast
+set hlsearch
+set showmode
+set ttimeout
+set wildmenu
+set incsearch
+set notimeout
+set smartcase
+set cursorline
+set ignorecase
+set nomodeline
+set cmdheight=2
+set scrolloff=5
+set laststatus=2
+set nostartofline
+set ttimeoutlen=100
+set backspace=indent,eol,start
+
+" Indentation
+set smarttab
+set expandtab
+set autoindent
+set shiftround
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+
+" Highlight matching brackets
+set matchpairs+=<:>
+
+" Display whitespaces
+"set list
+set listchars=eol:$,tab:»-,space:·,trail:·,precedes:«,extends:»
+
+" Text wrapping (auto or fixed)
+set wrap
+set breakindent
+"set textwidth=80
+
+" Keep backups, swap and undo files in vim dir
+silent !mkdir ~/.vim/backup ~/.vim/swp ~/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/undo//
+set directory=~/.vim/swp//
+set backupdir=~/.vim/backup//
+
+" Disable audio and visual bells
+set t_vb=
+set visualbell
+
+
+"**********************************************"
+"                   VIM-Plug                   "
+"**********************************************"
+
+" Vim-plug automatic installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Lightline statusbar
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
+
+
+"**********************************************"
+"               Plugins options                "
+"**********************************************"
+
+" Lightline (powerline, wombat, one, nord)
+set noshowmode
+
+
+"**********************************************"
+"                Custom keymaps                "
+"**********************************************"
+
+" Buffers navigation
+nnoremap gn :bn<CR>
+nnoremap gp :bp<CR>
+nnoremap gd :bd<CR>  
+
+" Toggle for 'paste' mode
+set pastetoggle=<F2>
+
+" Save
+nnoremap <C-w> :w<CR>
+
+" Tabs
+nnoremap <C-t> :tabnew<CR>
+
+" Render whitespaces
+nnoremap <C-l> :set list!<CR>
+
+" Add newline before/after current line
+nnoremap <Enter> o<Esc>k
+nnoremap <S-Enter> O<Esc>j
+
+" Move current line
+nnoremap <C-Up> :m .-2<CR>==
+nnoremap <C-Down> :m .+1<CR>==
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+
+
+"**********************************************"
+"                 Colorscheme                  "
+"**********************************************"
+
+colorscheme nord
+let g:lightline = {'colorscheme': 'nord'}
