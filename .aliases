@@ -1,0 +1,61 @@
+# Generic aliases
+alias e='exit'
+alias c='clear'
+alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m"'
+
+OS="$(uname)"
+
+if [[ $OS == 'Darwin' ]]; then
+
+    alias grep='grep --color=auto'
+
+    if command -v exa &> /dev/null; then
+        alias ld='exa -lDa'
+        alias ll='exa -la --group-directories-first'
+    elif command -v ls &> /dev/null; then
+        alias ll='ls -AGlh'
+        alias ld='ls -AGlhd -- */'
+    fi
+
+elif [[ $OS == 'Linux' ]]; then
+
+    alias ip='ip --color=auto'
+    alias diff='diff --color=auto'
+    alias grep='grep --color=auto'
+
+    if command -v exa &> /dev/null; then
+        alias ld='exa -lDa'
+        alias ll='exa -la --group-directories-first'
+    elif command -v ls &> /dev/null; then
+        alias lf='ls -Alh | grep -v ^d'
+        alias ll='ls -Alh --group-directories-first --color=always'
+        alias ld='ls -Alh --group-directories-first --color=always | grep ^d --color=never'
+    fi
+
+    # Distro specific aliases
+    DISTRO="$( cat /etc/*-release | grep -Po '(?<=^ID=).*' )"
+
+    if [[ $DISTRO == 'arch' || $DISTRO == 'manjaro' ]]; then
+        # Arch based 
+        alias list='sudo pacman -Q'
+        alias info='sudo pacman -Si'
+        alias clean='sudo pacman -Sc'
+        alias remove='sudo pacman -Rs'
+        alias search='sudo pacman -Ss'
+        alias install='sudo pacman -S'
+        alias sysupgrade='sudo pacman -Syu'
+    elif [[ $DISTRO == 'fedora' ]]; then
+        # RedHat based
+        alias info='sudo dnf info'
+        alias search='sudo dnf search'
+        alias sysupgrade='sudo dnf check-update && sudo dnf upgrade'
+    elif [[ $DISTRO == 'debian' || $DISTRO == 'ubuntu' ]]; then
+        # Debian based
+        alias info='apt show'
+        alias search='apt search'
+        alias list='apt list --installed'
+        alias autoclean='sudo apt autoclean'
+        alias sysupdate='sudo apt update && apt list --upgradable'
+        alias sysupgrade='sudo apt upgrade && sudo apt autoremove'
+    fi
+fi
