@@ -3,7 +3,7 @@
 # Shell options
 bindkey -e
 unsetopt beep
-setopt autocd 
+setopt autocd
 setopt promptsubst
 setopt extendedglob
 
@@ -36,11 +36,11 @@ if [[ -e ~/.aliases ]]; then
 fi
 
 # Completion
-autoload -Uz compinit 
+autoload -Uz compinit
 compinit
 
 # Colors for man pages
-if command -v most 2&> /dev/null; then
+if command -v most &> /dev/null; then
     export PAGER="most"
 else
     man() {
