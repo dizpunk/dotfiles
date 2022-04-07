@@ -1,0 +1,16 @@
+{
+    "window.zoomLevel": 1,
+    "files.autoSaveDelay": 2000,
+    "editor.wordWrapColumn": 80,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "workbench.startupEditor": "none",
+    "editor.wordWrap": "wordWrapColumn",
+    "telemetry.telemetryLevel": "crash",
+    "explorer.confirmDragAndDrop": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "boundary",
+}
