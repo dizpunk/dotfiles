@@ -1,0 +1,5 @@
+# exa aliases
+alias ls='exa -1'
+alias ld='exa -lDa'
+alias la='exa -1a --group-directories-first'
+alias ll='exa -la --group-directories-first'

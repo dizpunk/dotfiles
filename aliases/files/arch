@@ -1,0 +1,8 @@
+# pacman aliases
+alias list='sudo pacman -Q'
+alias info='sudo pacman -Si'
+alias clean='sudo pacman -Sc'
+alias remove='sudo pacman -Rs'
+alias search='sudo pacman -Ss'
+alias install='sudo pacman -S'
+alias upgrade='sudo pacman -Syu'

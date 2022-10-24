@@ -1,0 +1,9 @@
+# APT aliases
+alias info='apt show'
+alias search='apt search'
+alias remove='sudo apt remove'
+alias install='sudo apt install'
+alias upgrade='sudo apt upgrade'
+alias list='apt list --installed'
+alias clean='sudo apt autoremove && sudo apt autoclean'
+alias update='sudo apt update && apt list --upgradable'

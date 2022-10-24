@@ -1,68 +1,49 @@
-# Generic aliases
-alias grep='grep --color=auto'
-alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m"'
-
 OS="$(uname)"
+
+# Generic aliases
+source ./files/generic
 
 if [[ ${OS} == 'Darwin' ]]; then
 
+    # MacOS aliases
     if command -v exa &> /dev/null; then
-        alias ls='exa -1'
-        alias ld='exa -lDa'
-        alias la='exa -1a --group-directories-first'
-        alias ll='exa -la --group-directories-first'
+        source ./files/exa
+
     elif command -v ls &> /dev/null; then
-        alias ll='ls -AGlh'
-        alias ld='ls -AGlhd -- */'
+        source ./files/ls
+
     fi
 
 elif [[ ${OS} == 'Linux' ]]; then
 
-    alias ip='ip --color=auto'
-    alias diff='diff --color=auto'
+    # Generic linux aliases
+    source ./files/linux
 
     if command -v exa &> /dev/null; then
-        alias ls='exa -1'
-        alias ld='exa -lDa'
-        alias la='exa -1a --group-directories-first'
-        alias ll='exa -la --group-directories-first'
+        source ./files/exa
+
     elif command -v ls &> /dev/null; then
-        alias lf='ls -Alh | grep -v ^d'
-        alias ll='ls -Alh --group-directories-first --color=always'
-        alias ld='ls -Alh --group-directories-first --color=always | grep ^d --color=never'
+        source ./files/ls
+
     fi
+
 
     # Distro specific aliases
     DISTRO="$( cat /etc/*-release | grep -Po '(?<=^ID=).*' )"
 
     if [[ ${DISTRO} == 'arch' || ${DISTRO} == 'manjaro' ]]; then
-        # Arch based 
-        alias list='sudo pacman -Q'
-        alias info='sudo pacman -Si'
-        alias clean='sudo pacman -Sc'
-        alias remove='sudo pacman -Rs'
-        alias search='sudo pacman -Ss'
-        alias install='sudo pacman -S'
-        alias upgrade='sudo pacman -Syu'
+
+        # Arch based
+        source ./files/arch
+
     elif [[ ${DISTRO} == 'fedora' ]]; then
+
         # Fedora based
-        alias info='dnf info'
-        alias search='dnf search'
-        alias remove='sudo dnf remove'
-        alias list='dnf list installed'
-        alias clean='sudo dnf clean all'
-        alias install='sudo dnf install'
-        alias upgrade='sudo dnf upgrade'
-        alias update='sudo dnf check-update'
+        source ./files/fedora
+
     elif [[ ${DISTRO} == 'debian' || ${DISTRO} == 'ubuntu' ]]; then
+
         # Debian based
-        alias info='apt show'
-        alias search='apt search'
-        alias remove='sudo apt remove'
-        alias install='sudo apt install'
-        alias upgrade='sudo apt upgrade'
-        alias list='apt list --installed'
-        alias clean='sudo apt autoremove && sudo apt autoclean'
-        alias update='sudo apt update && apt list --upgradable'
+        source ./files/debian
     fi
 fi

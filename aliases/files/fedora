@@ -1,0 +1,9 @@
+# DNF aliases
+alias info='dnf info'
+alias search='dnf search'
+alias remove='sudo dnf remove'
+alias list='dnf list installed'
+alias clean='sudo dnf clean all'
+alias install='sudo dnf install'
+alias upgrade='sudo dnf upgrade'
+alias update='sudo dnf check-update'

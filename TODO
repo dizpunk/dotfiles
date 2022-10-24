@@ -1,2 +1,4 @@
-- Create installation scripts
-- Polish and rearrange aliases
+- [ ] Create installation scripts
+- [x] Polish and rearrange aliases
+- [ ] Fix and test vim config
+- [ ] Create Dockerfiles
