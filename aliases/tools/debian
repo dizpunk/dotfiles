@@ -1,4 +1,4 @@
-# APT aliases
+# APT
 alias info='apt show'
 alias search='apt search'
 alias remove='sudo apt remove'

@@ -1,4 +1,4 @@
-# DNF aliases
+# DNF
 alias info='dnf info'
 alias search='dnf search'
 alias remove='sudo dnf remove'

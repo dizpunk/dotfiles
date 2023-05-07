@@ -1,4 +1,4 @@
-# pacman aliases
+# pacman
 alias list='sudo pacman -Q'
 alias info='sudo pacman -Si'
 alias clean='sudo pacman -Sc'
