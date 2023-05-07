@@ -1,6 +1,6 @@
-touch aliases
-echo "" > aliases
-chmod 644 aliases
+touch .aliases
+echo "" > .aliases
+chmod 644 .aliases
 
 OS="$(uname)"
 
