@@ -1,4 +1,4 @@
-# ZSH configs
+# ZSH configurations
 
 # Shell options
 bindkey -e
@@ -36,10 +36,6 @@ if [[ -e ~/.aliases ]]; then
 fi
 
 # Completion
-if command -v brew &> /dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
 autoload -Uz compinit
 compinit
 
