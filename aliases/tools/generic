@@ -1,3 +1,0 @@
-# Generic
-alias grep='grep --color=auto'
-alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m"'

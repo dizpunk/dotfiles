@@ -1,24 +1,9 @@
+# Alias generator
 touch .aliases
-echo "" > .aliases
+printf "# Aliases\n" > .aliases
 chmod 644 .aliases
 
 OS="$(uname)"
-
-# Generic aliases
-cat ./tools/generic | tee -a .aliases &> /dev/null
-
-# Exa / ls
-if command -v exa &> /dev/null; then
-
-    echo -ne "\n" >> .aliases
-    cat ./tools/exa | tee -a .aliases &> /dev/null
-
-elif command -v ls &> /dev/null; then
-
-    echo -ne "\n" >> .aliases
-    source ./tools/ls
-
-fi
 
 if [[ ${OS} == 'Linux' ]]; then
 
@@ -47,4 +32,17 @@ if [[ ${OS} == 'Linux' ]]; then
         echo -ne "\n" >> .aliases
         cat ./tools/debian | tee -a .aliases &> /dev/null
     fi
+fi
+
+# File lister
+if command -v exa &> /dev/null; then
+
+    echo -ne "\n" >> .aliases
+    cat ./tools/exa | tee -a .aliases &> /dev/null
+
+elif command -v ls &> /dev/null; then
+
+    echo -ne "\n" >> .aliases
+    source ./tools/ls.sh
+
 fi

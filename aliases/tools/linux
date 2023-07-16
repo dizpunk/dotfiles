@@ -1,3 +1,6 @@
-# Linux
+# linux
 alias ip='ip --color=auto'
 alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m"'
+alias temp='echo -e "\n\e[1;31m$(sensors | grep -P "^CPU" | grep -P -o "\d{2}\.\d(=?°C)")\e[0m"'
