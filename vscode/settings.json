@@ -10,7 +10,8 @@
     "files.insertFinalNewline": true,
     "workbench.startupEditor": "none",
     "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontSize": 14,
     "explorer.confirmDragAndDrop": false,
     "files.trimTrailingWhitespace": true,
-    "editor.renderWhitespace": "selection",
+    "editor.renderWhitespace": "selection"
 }
