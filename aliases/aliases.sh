@@ -1,48 +1,44 @@
 # Alias generator
 touch .aliases
-printf "# Aliases\n" > .aliases
+printf "### Aliases\n" > .aliases
 chmod 644 .aliases
 
 OS="$(uname)"
 
+# Linux aliases
 if [[ ${OS} == 'Linux' ]]; then
 
-    # Generic linux aliases
-    echo -ne "\n" >> .aliases
-    cat ./tools/linux | tee -a .aliases &> /dev/null
+    # Generic
+    printf "\n" >> .aliases
+    cat ./os/linux | tee -a .aliases &> /dev/null
 
-    # Distro specific aliases
+    # Distro specific
     DISTRO="$( cat /etc/*-release | grep -Po '(?<=^ID=).*' )"
 
     if [[ ${DISTRO} == 'arch' || ${DISTRO} == 'manjaro' ]]; then
 
         # Arch based
-        echo -ne "\n" >> .aliases
-        cat ./tools/arch | tee -a .aliases &> /dev/null
+        printf "\n" >> .aliases
+        cat ./pkgman/arch | tee -a .aliases &> /dev/null
 
     elif [[ ${DISTRO} == 'fedora' ]]; then
 
-        # Fedora based
-        echo -ne "\n" >> .aliases
-        cat ./tools/fedora | tee -a .aliases &> /dev/null
+        # Fedora/RHL based
+        printf "\n" >> .aliases
+        cat ./pkgman/fedora | tee -a .aliases &> /dev/null
 
     elif [[ ${DISTRO} == 'debian' || ${DISTRO} == 'ubuntu' ]]; then
 
         # Debian based
-        echo -ne "\n" >> .aliases
-        cat ./tools/debian | tee -a .aliases &> /dev/null
+        printf "\n" >> .aliases
+        cat ./pkgman/debian | tee -a .aliases &> /dev/null
     fi
-fi
 
-# File lister
-if command -v exa &> /dev/null; then
+# MacOS aliases
+elif [[ ${OS} == 'Darwin' ]]; then
 
-    echo -ne "\n" >> .aliases
-    cat ./tools/exa | tee -a .aliases &> /dev/null
-
-elif command -v ls &> /dev/null; then
-
-    echo -ne "\n" >> .aliases
-    source ./tools/ls.sh
+    # Generic
+    printf "\n" >> .aliases
+    cat ./os/macos | tee -a .aliases &> /dev/null
 
 fi
