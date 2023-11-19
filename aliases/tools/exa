@@ -1,4 +1,0 @@
-# exa
-alias ld='exa -lDa'
-alias ll='exa -la --group-directories-first'
-alias lf='exa -la --group-directories-first | grep -v "^d"'

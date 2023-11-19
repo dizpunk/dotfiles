@@ -1,7 +1,16 @@
 # linux
 alias ip='ip --color=auto'
 alias diff='diff --color=auto'
-alias grep='grep --color=auto'
 alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m"'
 alias batt='echo -e "\n\e[1;31m$(cat /sys/class/power_supply/BAT0/capacity)%\e[0m"'
 alias temp='echo -e "\n\e[1;31m$(sensors | grep -P "^CPU" | grep -P -o "\d{2}\.\d(=?°C)")\e[0m"'
+
+# grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# ls
+alias lf='ls -Alh | grep -v ^d'
+alias ll='ls -Alh --group-directories-first --color=always'
+alias ld='ls -Alh --group-directories-first --color=always | grep ^d --color=never'

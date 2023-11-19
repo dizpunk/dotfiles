@@ -1,0 +1,12 @@
+# macos
+alias ret='echo -e "\nExit code: \e[1;31m$?\e[0m\n"'
+alias batt='echo -e "\nBattery: \e[1;31m$(pmset -g batt | grep -Eo "(\d{1,3})%")\e[0m\n"'
+
+# grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# ls
+alias ll='ls -AGlh'
+alias ld='ls -AGlhd -- */'
