@@ -1,0 +1,45 @@
+[legacy]
+menu-accelerator-enabled=false
+
+[legacy/keybindings]
+copy='<Alt>c'
+paste='<Alt>v'
+
+[legacy/profiles:]
+default='8c510aba-80c0-40c4-8c05-02ab2e108fa3'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '8c510aba-80c0-40c4-8c05-02ab2e108fa3']
+
+[legacy/profiles:/:8c510aba-80c0-40c4-8c05-02ab2e108fa3]
+audible-bell=false
+background-color='rgb(19,19,19)'
+background-transparency-percent=25
+cursor-blink-mode='off'
+default-size-columns=100
+default-size-rows=30
+font='Monospace 14'
+foreground-color='rgb(214,219,229)'
+palette=['rgb(31,31,31)', 'rgb(248,17,24)', 'rgb(45,197,94)', 'rgb(236,186,15)', 'rgb(42,132,210)', 'rgb(78,90,183)', 'rgb(16,129,214)', 'rgb(214,219,229)', 'rgb(214,219,229)', 'rgb(222,53,46)', 'rgb(29,211,97)', 'rgb(243,189,9)', 'rgb(16,129,214)', 'rgb(83,80,185)', 'rgb(15,125,219)', 'rgb(255,255,255)']
+scrollbar-policy='never'
+text-blink-mode='never'
+title=''
+title-mode='ignore'
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=true
+visible-name='Brogrammer'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-transparency-percent=25
+cursor-blink-mode='off'
+default-size-columns=100
+default-size-rows=30
+font='Monospace 14'
+scrollbar-policy='never'
+text-blink-mode='never'
+title=''
+title-mode='ignore'
+use-system-font=false
+use-theme-colors=true
+use-transparent-background=true
+visible-name='Default'
