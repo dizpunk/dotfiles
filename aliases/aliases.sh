@@ -12,6 +12,12 @@ if [[ ${OS} == 'Linux' ]]; then
     printf "\n" >> .aliases
     cat ./os/linux | tee -a .aliases &> /dev/null
 
+    # Add eza aliases
+    if  (command -v eza &> /dev/null); then
+        printf "\n" >> .aliases
+        cat ./apps/eza | tee -a .aliases &> /dev/null
+    fi
+
     # Distro specific
     DISTRO="$( cat /etc/*-release | grep -Po '(?<=^ID=).*' )"
 

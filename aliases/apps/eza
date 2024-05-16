@@ -1,0 +1,3 @@
+# eza
+alias ld='eza -lDa'
+alias ll='eza -la --group-directories-first'
