@@ -7,13 +7,15 @@
     "files.autoSave": "afterDelay",
     "workbench.tips.enabled": false,
     "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
     "explorer.compactFolders": false,
+    "files.insertFinalNewline": true,
     "workbench.startupEditor": "none",
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.fontSize": 14,
     "explorer.confirmDragAndDrop": false,
     "files.trimTrailingWhitespace": true,
     "editor.renderWhitespace": "selection",
-    "terminal.integrated.enablePersistentSessions": false
+    "window.menuBarVisibility": "toggle",
+    "terminal.integrated.enablePersistentSessions": false,
+    "extensions.ignoreRecommendations": true
 }
