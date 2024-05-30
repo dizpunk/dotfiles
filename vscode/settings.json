@@ -8,6 +8,7 @@
     "workbench.tips.enabled": false,
     "files.trimFinalNewlines": true,
     "explorer.compactFolders": false,
+    "window.titleBarStyle": "custom",
     "files.insertFinalNewline": true,
     "workbench.startupEditor": "none",
     "telemetry.telemetryLevel": "off",
@@ -16,6 +17,6 @@
     "files.trimTrailingWhitespace": true,
     "editor.renderWhitespace": "selection",
     "window.menuBarVisibility": "toggle",
-    "terminal.integrated.enablePersistentSessions": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "terminal.integrated.enablePersistentSessions": false
 }
